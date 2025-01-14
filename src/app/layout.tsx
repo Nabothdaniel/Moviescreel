@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${inter.className} h-full w-full bg-[#29292e]  p-4 md:px-24 my-5 md:py-8 `}
+        className={` ${inter.className} h-full w-full bg-[#29292e]  p-4 md:px-[7.3rem] my-5 md:py-8 `}
       >
         <Header/>
         <Sidebar/>

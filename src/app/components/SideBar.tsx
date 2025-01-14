@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState,JSX } from "react";
 import Link from "next/link";
-import { FaSquare, FaBookmark, FaBilibili, FaChromecast, FaPix } from "react-icons/fa6";
+import { FaSquare, FaBookmark, FaBilibili,  FaPix,  FaClapperboard  } from "react-icons/fa6";
 
 // Define a type for the sidebar link properties
 interface SidebarLink {
@@ -19,26 +19,33 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  const iconStyle = " w-5 h-5 md:h-7 md:w-7 text-white transition duration-75 group-hover:text-white dark:group-hover:text-white";
+
   // Define the sidebar links
   const links: SidebarLink[] = [
     {
-      href: "/pages/about",
-      icon: <FaSquare className="w-5 h-5 text-white transition duration-75 group-hover:text-white dark:group-hover:text-white" />,
+      href: "/",
+      icon: <FaClapperboard className={`${iconStyle} text-red-600`} />,
       label: "Dashboard",
     },
     {
+      href: "/pages/about",
+      icon: <FaSquare className={iconStyle}/>,
+      label: "About",
+    },
+    {
       href: "/pages/trending",
-      icon: <FaPix className="w-5 h-5 text-white transition duration-75 group-hover:text-white dark:group-hover:text-white" />,
+      icon: <FaPix className={iconStyle}/>,
       label: "Trending",
     },
     {
       href: "#",
-      icon: <FaBilibili className="w-5 h-5 text-white transition duration-75 group-hover:text-white dark:group-hover:text-white" />,
+      icon: <FaBilibili className={iconStyle}/>,
       label: "Download",
     },
     {
       href: "#",
-      icon: <FaBookmark className="w-5 h-5 text-white transition duration-75 group-hover:text-white dark:group-hover:text-white" />,
+      icon: <FaBookmark className={iconStyle}/>,
       label: "BookMark",
     },
   ];
@@ -85,7 +92,7 @@ const Sidebar = () => {
               <li key={index}>
                 <Link
                   href={link.href}
-                  className="flex items-center p-2 md:px-auto text-gray-900 rounded-lg dark:text-white hover:bg-gray-900 hover:text-white group my-3"
+                  className="flex items-center md:justify-center p-2 md:px-auto text-gray-900 rounded-lg dark:text-white hover:bg-gray-900 hover:text-white group my-3 md:my-5"
                 >
                   {link.icon}
                   <span className="ms-3 text-white hover:text-white md:hidden">
